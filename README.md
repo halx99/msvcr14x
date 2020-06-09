@@ -5,9 +5,10 @@ msvcr14x is a program that allows programs compiled with VC2015 and above not to
 https://github.com/sonyps5201314/ntdll.git
 
 ## build steps：
-1. git clone https://github.com/sonyps5201314/msvcr14x.git  
-2. open msvcr14x.sln with visual studio 2017.  
-3. batch build all configurations of all projects except msvcrx project.  
+1. ```git clone https://github.com/sonyps5201314/msvcr14x.git```  
+2. ```git submodule update --init --recursive```  
+3. open msvcr14x.sln with visual studio 2017.  
+4. batch build all configurations of all projects except msvcrx project.  
 In first time build, you can not build msvcp14x succuess, remove CONCRT14X(D).lib in 'Linker'->'Input'->'Additional Dependencies' options of msvcp14x project, after build it, build concrt14x, then revert the 'Additional Dependencies' options of msvcp14x project. build all except msvcrx. now you will succuess.  
 Not first time build, CONCRT14X(D).lib is in each output directory, so you can build all succuess.  
 msvcrx project is experimental project,so do not use it,it can be removed in the future.  
