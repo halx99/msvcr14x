@@ -99,7 +99,7 @@
       <PreprocessorDefinitions>_DLL;_CRTBLD;_VCRT_BUILD;_VCRT_ALLOW_INTERNALS;CRTDLL;_CRT_GLOBAL_STATE_ISOLATION;_WDK_BUILD_;_KERNEL32_;_NTSYSTEM_;MSVCR14XEXPORTS;_WINDOWS;_USRDLL;_CRT_DECLARE_GLOBAL_VARIABLES_DIRECTLY;_CORECRT_BUILD;WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
-      <AdditionalIncludeDirectories>.;.\inc;$(VCToolsInstallDir)\crt\src\vcruntime;$(UniversalCRTSdkDir)\Source\$(TargetUniversalCRTVersion)\ucrt\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;.\inc;$(SolutionDir)ntdll\inc;$(VCToolsInstallDir)\crt\src\vcruntime;$(UniversalCRTSdkDir)\Source\$(TargetUniversalCRTVersion)\ucrt\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>msvcr14x.h</ForcedIncludeFiles>
       <SupportJustMyCode>false</SupportJustMyCode>
     </ClCompile>
@@ -127,7 +127,7 @@
       <PreprocessorDefinitions>_DLL;_CRTBLD;_VCRT_BUILD;_VCRT_ALLOW_INTERNALS;CRTDLL;_CRT_GLOBAL_STATE_ISOLATION;_WDK_BUILD_;_KERNEL32_;_NTSYSTEM_;MSVCR14XEXPORTS;_WINDOWS;_USRDLL;_CRT_DECLARE_GLOBAL_VARIABLES_DIRECTLY;_CORECRT_BUILD;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <MinimalRebuild>false</MinimalRebuild>
-      <AdditionalIncludeDirectories>.;.\inc;$(VCToolsInstallDir)\crt\src\vcruntime;$(UniversalCRTSdkDir)\Source\$(TargetUniversalCRTVersion)\ucrt\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;.\inc;$(SolutionDir)ntdll\inc;$(VCToolsInstallDir)\crt\src\vcruntime;$(UniversalCRTSdkDir)\Source\$(TargetUniversalCRTVersion)\ucrt\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>msvcr14x.h</ForcedIncludeFiles>
       <SupportJustMyCode>false</SupportJustMyCode>
     </ClCompile>
@@ -153,7 +153,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
       <StringPooling>true</StringPooling>
-      <AdditionalIncludeDirectories>.;.\inc;$(VCToolsInstallDir)\crt\src\vcruntime;$(UniversalCRTSdkDir)\Source\$(TargetUniversalCRTVersion)\ucrt\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;.\inc;$(SolutionDir)ntdll\inc;$(VCToolsInstallDir)\crt\src\vcruntime;$(UniversalCRTSdkDir)\Source\$(TargetUniversalCRTVersion)\ucrt\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <ForcedIncludeFiles>msvcr14x.h</ForcedIncludeFiles>
     </ClCompile>
@@ -180,7 +180,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_DLL;_CRTBLD;_VCRT_BUILD;_VCRT_ALLOW_INTERNALS;CRTDLL;_CRT_GLOBAL_STATE_ISOLATION;_WDK_BUILD_;_KERNEL32_;_NTSYSTEM_;MSVCR14XEXPORTS;_WINDOWS;_USRDLL;_CRT_DECLARE_GLOBAL_VARIABLES_DIRECTLY;_CORECRT_BUILD;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>.;.\inc;$(VCToolsInstallDir)\crt\src\vcruntime;$(UniversalCRTSdkDir)\Source\$(TargetUniversalCRTVersion)\ucrt\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;.\inc;$(SolutionDir)ntdll\inc;$(VCToolsInstallDir)\crt\src\vcruntime;$(UniversalCRTSdkDir)\Source\$(TargetUniversalCRTVersion)\ucrt\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>msvcr14x.h</ForcedIncludeFiles>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>

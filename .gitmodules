@@ -1,0 +1,3 @@
+[submodule "ntdll"]
+	path = ntdll
+	url = https://github.com/sonyps5201314/ntdll
