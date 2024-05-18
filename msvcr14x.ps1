@@ -470,6 +470,9 @@ $task_schema.status = @{
     }
 }
 
+println "[$(Get-Date)]Executing tasks ..."
+$start_time = [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds()
+
 # execute tasks one by one
 foreach ($task in "prerequisite,$tasks".Split(',')) {
     if ($task_schema.Contains($task) -and !$task_schema.$task.executed) {
@@ -480,5 +483,8 @@ foreach ($task in "prerequisite,$tasks".Split(',')) {
         println "The task:$task not defined!"
     }
 }
+
+$diff_time = ([DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds() - $start_time) / 1000.0
+println "[$(Get-Date)] Execute tasks done, cost: $diff_time (seconds)"
 
 cmd /c 'pause'
