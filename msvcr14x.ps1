@@ -316,13 +316,13 @@ function setup7z() {
 $Global:vs_inst = $null
 $task_schema = @{}
 
+$boost_ver = '1.86.0'
+$winsdk_ver = '10.0.26100.0'
+$vs_version = "17.0"
+
 # builtin
 $task_schema.prerequisite = @{
     action = {
-        $boost_ver = '1.86.0'
-        $winsdk_ver = '10.0.26100.0'
-        $vs_version = "17.0"
-
         #region find_vs
         $vs_where = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
         
@@ -383,36 +383,14 @@ $task_schema.prerequisite = @{
         }
     
         # auto setup boost
-        $boost_ROOT = [Environment]::GetEnvironmentVariable("boost_ROOT", "User")
-        if (!$boost_ROOT -or !(Test-Path $boost_ROOT -PathType Container)) {
-            $folder_name = "boost_$($boost_ver.Replace('.', '_'))"
-            $boost_ROOT = Join-Path $external_prefix "$folder_name"
-            
-            if (!(Test-Path $boost_ROOT -PathType Container)) {
-                $boost_url = "https://boostorg.jfrog.io/artifactory/main/release/$boost_ver/source/$folder_name.7z"
-                $boost_pkg_out = Join-Path $external_prefix "$folder_name.7z"
-                if (!(Test-Path $boost_pkg_out -PathType Leaf)) {
-                    curl.exe -L $boost_url -o $boost_pkg_out
-                }
-                
-                if (!(Test-Path $boost_ROOT -PathType Container)) {
-                    setup7z
-                    7z x $boost_pkg_out "-o$external_prefix" -bsp1 -y | Out-Host
-                }
-            }
-
-            [Environment]::SetEnvironmentVariable("boost_ROOT", $boost_ROOT, "User")
-        }
+        
+        
     }
 }
 $task_schema.build = @{
     action = {
         Push-Location $PSScriptRoot
         try {
-            if (-not $env:boost_ROOT) {
-                $env:boost_ROOT = (Get-ItemProperty -Path "HKCU:\Environment" -Name "boost_ROOT").boost_ROOT
-            }
-
             git pull -v --progress "origin"
 
             while (-not (Test-Path -Path "../ntdll")) {
@@ -424,6 +402,12 @@ $task_schema.build = @{
                 git clone "https://github.com/sonyps5201314/YY-Thunks.git" "../YY-Thunks"
             }
             git -C "../YY-Thunks" pull -v --progress "origin"
+
+            while (-not (Test-Path -Path "../boost-math")) {
+                git clone "https://github.com/boostorg/math.git" "../boost-math"
+            }
+            git -C "../boost-math" fetch
+            git -C "../boost-math" checkout "boost-$boost_ver"
 
             # (New-Object -ComObject "WScript.Shell").Run("../ntdll/setup.vbs")
             $ntdll_setup = Join-Path $PSScriptRoot '../ntdll/setup.vbs'
