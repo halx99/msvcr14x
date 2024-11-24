@@ -319,7 +319,15 @@ $task_schema = @{}
 # builtin
 $task_schema.prerequisite = @{
     action = {
-        $boost_ver = '1.86.0'
+       #boost 1.86.0 removed 
+       #  “D:\dev\x-studio\deps\msvcr14x\msvcr14x.sln”(Build 目标) (1) ->
+       # “D:\dev\x-studio\deps\msvcr14x\msvcp14x_2\msvcp14x_2.vcxproj.metaproj”(默认目标) (8) ->
+       # “D:\dev\x-studio\deps\msvcr14x\msvcp14x_2\msvcp14x_2.vcxproj”(默认目标) (20) ->
+       # (ClCompile 目标) ->
+       #  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\crt\src\stl\special_math.cpp
+       #(26,10): error C1083: 无法打开包括文件: “boost/math/special_functions/bessel.hpp”: No such file or directory [D:\dev\x-s
+       #tudio\deps\msvcr14x\msvcp14x_2\msvcp14x_2.vcxproj]
+        $boost_ver = '1.85.0'
         $winsdk_ver = '10.0.26100.0'
         $vs_version = "17.0"
 
